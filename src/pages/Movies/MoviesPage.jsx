@@ -1,7 +1,7 @@
-import { searchMovies } from "../api/tmdbApi";
+import { searchMovies } from "../../api/tmdbApi";
 import React, { useState, useEffect } from "react";
-import SearchBar from "../components/SearchBar/SearchBar";
-import MovieList from "../components/MovieList/MovieList";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import MovieList from "../../components/MovieList/MovieList";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);

@@ -3,10 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Header from "./components/Header/Header";
 
-const HomePage = lazy(() => import("./pages/HomePage"));
-const MoviesPage = lazy(() => import("./pages/MoviesPage"));
-// const MovieDetailsPage = lazy(() => import("./pages/MovieDetailsPage"));
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const HomePage = lazy(() => import("./pages/Home/HomePage"));
+const MoviesPage = lazy(() => import("./pages/Movies/MoviesPage"));
+const MovieDetailsPage = lazy(() =>
+  import("./pages/MovieDetails/MovieDetailsPage")
+);
+const NotFoundPage = lazy(() => import("./pages/NotFound/NotFoundPage"));
 // const MovieCast = lazy(() => import("./components/MovieCast"));
 // const MovieReviews = lazy(() => import("./components/MovieReviews"));
 
@@ -21,8 +23,9 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/movies" element={<MoviesPage />} />
+
+              <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
               {/*
-              <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
                 <Route path="cast" element={<MovieCast />} />
                 <Route path="reviews" element={<MovieReviews />} />
               </Route> */}

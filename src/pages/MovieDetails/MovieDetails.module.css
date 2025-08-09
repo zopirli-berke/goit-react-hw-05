@@ -1,0 +1,43 @@
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsContainer {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+.moviePoster {
+  width: 400px;
+  margin-left: 20px;
+}
+
+.detailsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.movieTitle {
+  font-size: 30px;
+}
+
+.detailsText {
+  font-size: 20px;
+}
+
+.additionalInfo,
+.additionalInfo ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 20px;
+  list-style: none;
+}
+
+.additionalInfoText {
+  font-size: 20px;
+}
