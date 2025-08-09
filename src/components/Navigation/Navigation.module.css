@@ -9,6 +9,9 @@
   text-decoration: none;
   color: black;
   font-size: 20px;
+  &:hover {
+    color: white;
+  }
 }
 
 .activeLink {

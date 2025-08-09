@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 250px;
+  padding: 8px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid black;
+  &:hover {
+    border: 1px solid aquamarine;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  &:focus {
+    border: 1px solid aquamarine;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.btn {
+  width: 125px;
+  padding: 8px;
+  border-radius: 8px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid black;
+  &:hover {
+    border: none;
+    background-color: aquamarine;
+    color: white;
+  }
+}
