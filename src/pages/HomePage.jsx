@@ -1,7 +1,6 @@
 import { fetchTrendingMovies } from "../api/tmdbApi.js";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MovieList from "../components/MovieList/MovieList.jsx";
-import SearchBar from "../components/SearchBar/SearchBar.jsx";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
