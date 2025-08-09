@@ -10,6 +10,11 @@
 .movieTitle {
   margin-top: 10px;
   border-bottom: 1px solid #ccc;
+  width: 255px;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .movieItem {

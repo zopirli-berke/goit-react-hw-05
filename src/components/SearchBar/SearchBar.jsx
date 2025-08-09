@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import css from "./SearchBar.module.css";
 
 export default function SearchBar({ onSubmit }) {
-  const { query, setQuery } = useState("");
+  const [query, setQuery] = useState("");
 
   const handleChange = (event) => {
     setQuery(event.target.value);
