@@ -1,0 +1,50 @@
+/* src/components/MovieCast/MovieCast.module.css */
+
+.castList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.castItem {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Kartın üzerine gelince hafifçe yukarı kalkmasını ve gölgenin artmasını sağlar */
+.castItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.castImage {
+  width: 200px;
+  height: auto;
+  display: block;
+
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background-color: #e9ecef;
+}
+
+.castInfo {
+  padding: 0.75rem;
+}
+
+.actorName {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 0 0.25rem 0;
+  color: #212529;
+}
+
+.characterName {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin: 0;
+}

@@ -13,7 +13,7 @@ export default function MovieList({ movies }) {
       {movies.map((movie) => {
         const imageUrl = movie.poster_path
           ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-          : "https://via.placeholder.com/500x750?text=No+Image";
+          : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/500px-No-Image-Placeholder.svg.png";
 
         return (
           <li key={movie.id} className={css.movieItem}>

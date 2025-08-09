@@ -29,8 +29,7 @@
   font-size: 20px;
 }
 
-.additionalInfo,
-.additionalInfo ul {
+.additionalInfo {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -38,6 +37,16 @@
   list-style: none;
 }
 
+.additionalInfoList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .additionalInfoText {
   font-size: 20px;
+  &:hover {
+    color: aquamarine;
+  }
 }

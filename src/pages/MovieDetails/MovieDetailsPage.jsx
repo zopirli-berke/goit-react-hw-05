@@ -48,7 +48,7 @@ export default function MovieDetailsPage() {
   }
   const imageUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : "https://via.placeholder.com/500x750?text=No+Image";
+    : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1024px-No-Image-Placeholder.svg.png";
   return (
     <div className={css.details}>
       <BackLink to={backLinkHref} />
@@ -72,7 +72,7 @@ export default function MovieDetailsPage() {
       </div>
       <div className={css.additionalInfo}>
         <h2>Additional information</h2>
-        <ul>
+        <ul className={css.additionalInfoList}>
           <li>
             <Link to="cast" className={css.additionalInfoText}>
               Cast

@@ -9,7 +9,7 @@ const MovieDetailsPage = lazy(() =>
   import("./pages/MovieDetails/MovieDetailsPage")
 );
 const NotFoundPage = lazy(() => import("./pages/NotFound/NotFoundPage"));
-// const MovieCast = lazy(() => import("./components/MovieCast"));
+const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
 // const MovieReviews = lazy(() => import("./components/MovieReviews"));
 
 function App() {
@@ -24,11 +24,11 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/movies" element={<MoviesPage />} />
 
-              <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
-              {/*
+              <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
                 <Route path="cast" element={<MovieCast />} />
-                <Route path="reviews" element={<MovieReviews />} />
-              </Route> */}
+              </Route>
+              {/*<Route path="reviews" element={<MovieReviews />} />
+               */}
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
             {/* Suspense fallback for lazy-loaded components */}
