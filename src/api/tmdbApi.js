@@ -3,42 +3,60 @@ import axios from "axios";
 const API_URL = "https://api.themoviedb.org/3";
 const API_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 
-const options = {
+// Her istekte gönderilecek olan temel axios ayarları
+const axiosInstance = axios.create({
+  baseURL: API_URL,
   headers: {
     Authorization: `Bearer ${API_TOKEN}`,
   },
-};
+});
 
 export const fetchTrendingMovies = async () => {
-  const res = await axios.get(`${API_URL}/trending/movie/day`, options);
-  return res.data.results;
+  const response = await axiosInstance.get("/trending/movie/day", {
+    params: {
+      language: "en-US",
+    },
+  });
+  return response.data.results;
 };
 
 export const searchMovies = async (query) => {
-  const res = await axios.get(
-    `${API_URL}/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
-    options
-  );
-  return res.data.results;
+  const response = await axiosInstance.get("/search/movie", {
+    params: {
+      query,
+      include_adult: false,
+      language: "en-US",
+      page: 1,
+    },
+  });
+  return response.data.results;
 };
 
-export const getMovieDetails = async (id) => {
-  const res = await axios.get(`${API_URL}/movie/${id}?language=en-US`, options);
-  return res.data;
+export const getMovieDetails = async (movieId) => {
+  const response = await axiosInstance.get(`/movie/${movieId}`, {
+    params: {
+      language: "en-US",
+    },
+  });
+  return response.data;
 };
 
-export const getMovieCredits = async (id) => {
-  const res = await axios.get(
-    `${API_URL}/movie/${id}/credits?language=en-US`,
-    options
-  );
-  return res.data.cast;
+export const getMovieCredits = async (movieId) => {
+  const response = await axiosInstance.get(`/movie/${movieId}/credits`, {
+    params: {
+      language: "en-US",
+    },
+  });
+
+  return response.data.cast;
 };
 
-export const getMovieReviews = async (id) => {
-  const res = await axios.get(
-    `${API_URL}/movie/${id}/reviews?language=en-US&page=1`,
-    options
-  );
-  return res.data.results;
+export const getMovieReviews = async (movieId) => {
+  const response = await axiosInstance.get(`/movie/${movieId}/reviews`, {
+    params: {
+      language: "en-US",
+      page: 1,
+    },
+  });
+  return response.data.results;
 };
