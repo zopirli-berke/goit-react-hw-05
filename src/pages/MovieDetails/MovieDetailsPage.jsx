@@ -1,15 +1,18 @@
 import { getMovieDetails } from "../../api/tmdbApi";
 import React, { useEffect, useState, Suspense } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import css from "./MovieDetails.module.css";
 import BackLink from "../../components/BackLink/BackLink";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
 
+  const location = useLocation();
+
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
   const backLinkHref = location.state?.from ?? "/";
 
   useEffect(() => {
@@ -20,7 +23,6 @@ export default function MovieDetailsPage() {
 
       try {
         const details = await getMovieDetails(movieId);
-
         setMovie(details);
       } catch (error) {
         console.error("Movie details not found:", error);
@@ -34,7 +36,6 @@ export default function MovieDetailsPage() {
       getDetails();
     }
   }, [movieId]);
-
   if (isLoading) {
     return <div>Loading details...</div>;
   }
@@ -61,7 +62,7 @@ export default function MovieDetailsPage() {
           <p className={css.detailsText}>
             <strong>Score:</strong> {movie.vote_average}
           </p>
-          {/* Türler için kontol */}
+          {/* Türler için kontrol */}
           {movie.genres && movie.genres.length > 0 && (
             <div className={css.detailsText}>
               <strong>Genres: </strong>
@@ -78,14 +79,13 @@ export default function MovieDetailsPage() {
               Cast
             </Link>
           </li>
-
           <li>
             <Link to="reviews" className={css.additionalInfoText}>
               Reviews
             </Link>
           </li>
         </ul>
-        <Suspense fallback={<div>Loading subpage...</div>}>
+        <Suspense fallback={<div>Loading section...</div>}>
           <Outlet />
         </Suspense>
       </div>
